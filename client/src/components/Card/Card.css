@@ -1,0 +1,60 @@
+.cardContainer{
+    background: linear-gradient(to right, #B7E4F9FF 0%, #82491EFF 100% );
+    /* s */
+    width: 17vw;
+    height: 17rem; 
+    margin: 1px 0 2px 0;
+    display: flex;
+    font-size: large;
+    color: black;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 1.5em 0;
+    position: relative;
+    /* width: 450px; */
+    text-align: center;
+    align-items: center;
+    /* padding-bottom: 20px; */
+    place-content: center;
+    justify-content: space-evenly;
+    margin: auto;
+    /* margin-bottom: 20px; */
+}
+
+.button{
+    height: 47px;
+    width: 47px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.x{
+    font-size: 2.5em;
+    font-weight: 700;
+    align-items: auto; 
+    justify-content: center;
+    text-align: auto;
+    margin-left: 4.5px;
+}
+
+.name{
+    font-family: 'Creepster', cursive;
+  src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap') 
+ 
+}
+
+.description{
+    font-family: 'Creepster', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap') 
+  
+}
+
+.photoCharacter{
+    width: 50%
+
+}
