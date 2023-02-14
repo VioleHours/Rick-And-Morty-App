@@ -1,60 +1,268 @@
 .cardContainer{
-    background: linear-gradient(to right, #B7E4F9FF 0%, #82491EFF 100% );
-    /* s */
-    width: 17vw;
-    height: 17rem; 
+    /* background: linear-gradient(to right, #B7E4F9FF 0%, #82491EFF 100% ); */
+    /* background-image: url('https://w0.peakpx.com/wallpaper/742/633/HD-wallpaper-rick-and-morty-galaxy-king.jpg'); */
+    /* background-image: url('https://i.pinimg.com/736x/f3/ed/16/f3ed16eebd6bfa56d0b59603250b8ef8--rick-and-morty-t-shirt-designs.jpg'); */
+    /* background-image: url('https://c4.wallpaperflare.com/wallpaper/623/762/389/artico-aurora-boreal-naturaleza-wallpaper-preview.jpg'); */
+    background-image: url('https://p4.wallpaperbetter.com/wallpaper/53/971/783/northern-lights-forest-8k-aurora-borealis-wallpaper-preview.jpg');
+    width: 27vw;
+    height: 27rem; 
     margin: 1px 0 2px 0;
     display: flex;
     font-size: large;
-    color: black;
     flex-direction: column;
     border-radius: 15px;
-    padding: 1.5em 0;
     position: relative;
-    /* width: 450px; */
+    width: 450px;
     text-align: center;
     align-items: center;
-    /* padding-bottom: 20px; */
+    padding-bottom: 20px;
     place-content: center;
     justify-content: space-evenly;
-    margin: auto;
-    /* margin-bottom: 20px; */
+    margin: calc(8px + 1.5625vw);
+    margin-bottom: 20px;
 }
 
-.button{
-    height: 47px;
-    width: 47px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: 15px;
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
+:root {
+  --glow-color: hsl(118, 82%, 53%);
 }
 
-.x{
-    font-size: 2.5em;
-    font-weight: 700;
-    align-items: auto; 
-    justify-content: center;
-    text-align: auto;
-    margin-left: 4.5px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  position: relative;
+  top: 15%;
+  left: 40%;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: 'Creepster', cursive;
+  font-size: 1em;
+  font-weight: 900;
+  letter-spacing: 1em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.x {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.button:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.button:hover .x {
+  animation: none;
+}
+
+.button:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.button:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    font-size: 1em;
+  }
+}
+
 
 .name{
     font-family: 'Creepster', cursive;
-  src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap') 
- 
+  src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(0, 99, 7), 0 0 0.2em rgb(7, 56, 6);
+  color: #70e000;
+  position: inherit;
+  margin-top: 7%;
+  font-size: 4ch;
+}
+
+.columns {
+    column-count: 2;
+    column-gap: 50%;
+    column-rule: 5px outset solid;
+
 }
 
 .description{
     font-family: 'Creepster', cursive;
-    src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap') 
-  
+    src: url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(28, 224, 21), 0 0 0.2em rgb(23, 177, 26);
+    color: white;
+    font-size: 3ch;
+    padding-bottom: 3%;
 }
 
 .photoCharacter{
-    width: 50%
-
+    width: 55%;
+    border-radius: 7px;
 }
