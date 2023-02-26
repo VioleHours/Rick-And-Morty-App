@@ -1,0 +1,35 @@
+.containerSearchBar {
+    display: flex;
+    align-content: center;
+    width: 30%;
+    /* justify-content: start; */
+    flex-wrap: wrap;
+}
+
+.inputCharacter {
+    width: 300px;
+    height: 32px;
+    border-radius: 20px;
+    border: 1px solid #2a1609;
+}
+
+.inputButton {
+    background-color: #65c80f;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    /* width: 35px;
+    height: 35px; */
+    display: inline-flex;
+    position:absolute;
+    border: 1px solid #78de1f;
+    margin-left: 10%;
+    cursor: pointer;
+}
+  
+.inputButton:hover {
+    background-color: #78de1f ;
+    color:  #317e07;
+    border: 1px solid white;
+}
