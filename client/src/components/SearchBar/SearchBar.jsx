@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './SearchBar.css'
 
 export default function SearchBar(props){
     const [character, setCharacter] = useState('');
@@ -8,9 +9,9 @@ export default function SearchBar(props){
     }
 
     return (
-        <div>
-            <input type = 'search' value={character} onChange={handleChange}/>
-            <button onClick={() => props.onSearch(character)}>Mira la magia</button>
+        <div className='containerSearchBar'>
+            <input className='inputCharacter' type ='search' placeholder='Character number...' value={character} onChange={handleChange}/>
+            <button className='inputButton' onClick={() => props.onSearch(character)}>Mira la magia...</button>
         </div>
     );
 }
