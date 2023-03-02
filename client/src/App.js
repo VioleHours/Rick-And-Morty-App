@@ -19,12 +19,6 @@ function App() {
     !access && navigate('/');
   }, [access]);
 
-  function login(userData) {
-    if(userData.username === username && userData.password === password) {
-       setAccess(true);
-       navigate('/home');
-    }
-  }
 
   function onSearch(character) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
