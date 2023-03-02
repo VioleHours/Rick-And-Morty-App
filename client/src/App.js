@@ -1,26 +1,32 @@
 import { useEffect, useState } from 'react'; 
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
+import About from './components/About/About.jsx';
 import Cards from './components/Cards/Cards.jsx';
 import NavBar from './components/NavBar/NavBar.jsx';
+import Form from './components/Form/Form.jsx';
 
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(false);
+  const [characters, setCharacters] = useState([])
+  const [access, setAccess] = useState(false)
+  const navigate = useNavigate()
 
   const username = 'rick@morty.com';
   const password = 'serie1234';
+  
+  const Login = (userData) =>{
+    if(userData.password === password && userData.username === username){
+      setAccess(true)
+      navigate('/home')
+    }
+  }
 
-  const Location = useLocation();
-  const navigate = useNavigate();
+    useEffect(() => {
+      !access && navigate('/');
+    }, [access]);
 
-  useEffect(() => {
-    !access && navigate('/');
-  }, [access]);
-
-
-  function onSearch(character) {
+  const onSearch = (character) => {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
        .then((response) => response.json())
        .then((data) => {
@@ -32,24 +38,24 @@ function App() {
        });
   }
 
-  function onClose(id){
-    setCharacters(oldCharacters => 
-      oldCharacters.filter(char => char.id !== id)
-      );
+  const onClose = (id) => {
+    setCharacters(characters.filter(character => character.id !== id))
   }
 
   return (
     <div className="App" style={{ padding: '25px' }}>
-      <NavBar />
-      { Location.pathname === '/' ? null : <NavBar onSearch={onSearch} /> }
-      <Routes>
-        {/* <Route path='/' element={ <Form onLogin={login} /> }/> */}
-        <Route path='/home' element={ <Cards onClose={onClose} characters={characters} /> }/>
-        {/* <Route path='/about' element={ <About /> }/>
-        <Route path='/detail/:detailId' element={ <Detail />}/>
-        <Route path='*' element={ <Error /> }/> */}
-      </Routes>
-      </div>
+      <NavBar onSearch={onSearch} /> 
+        <div>
+          <Routes>
+            <Route path='/' element={ <Form Login={Login} /> }/>
+            <Route path='/home' element={ <Cards onClose={onClose} characters={characters} /> }/>
+            <Route path='/about' element={ <About /> }/>
+          {/* <Route path='/detail/:detailId' element={ <Detail />}/> */}
+          {/* <Route path='/favorites' element={ <Favorites />}/> */}
+          {/* <Route path='*' element={ <Error /> }/> */}
+          </Routes>
+        </div>
+    </div>
   );
 }
 
