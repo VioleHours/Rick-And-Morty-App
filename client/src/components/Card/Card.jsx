@@ -1,9 +1,8 @@
 import './Card.css'; 
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { addFavorite, deleteFavorite } from '../../actions/index.js'
-import '../../App.js'
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { addFavorite, deleteFavorite } from '../../actions/index.js';
 
 
 export default function Card ({name, species, gender, image, onClose, id}) {
