@@ -29,7 +29,7 @@ const Form = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.login(userData)
+        props.Login(userData)
 
         const propsArr = Object.keys(errors)
             if (propsArr.length === 0) {
@@ -46,23 +46,14 @@ const Form = (props) => {
     }
 
     return(
-        <div>
+        <div className='container'>
             <form onSubmit={handleSubmit}>
-            <label htmlFor='username'> Username: </label>
-            <input 
-                type='text'
-                name='username'
-                value={userData.username}
-                oneChange={handleInputChange}
-                />
+            <h1>EL user es Rick@Morty.com y la contraseña serie1234</h1>
+            <label name='username'> Username: </label>
+            <input type='text' name='username' value={userData.username} onChange={handleInputChange} />
             {errors.username !== ''? <p className='danger' >{errors.username}</p> : ''}
-            <label htmlFor='password'> Password: </label>
-            <input 
-                type='text'
-                name='password'
-                value={userData.password}
-                oneChange={handleInputChange}
-                />
+            <label name='password'> Password: </label>
+            <input type='text' name='password' value={userData.password} onChange={handleInputChange} />
             {errors.password !== ''? <p className='danger' >{errors.password}</p> : ''}
             <button type='submit'> Login </button>
             </form>
